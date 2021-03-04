@@ -1,2 +1,39 @@
-# serf-handler.cr
-This implements a port of the Ruby Serf Handler gem -- https://github.com/wyhaines/serf-handler -- as a library that can be used to easily build compiled, distributable handler binaries using the Crystal language.
+# serf-handler
+
+TODO: Write a description here
+
+## Installation
+
+1. Add the dependency to your `shard.yml`:
+
+   ```yaml
+   dependencies:
+     serf-handler:
+       github: your-github-user/serf-handler
+   ```
+
+2. Run `shards install`
+
+## Usage
+
+```crystal
+require "serf-handler"
+```
+
+TODO: Write usage instructions here
+
+## Development
+
+TODO: Write development instructions here
+
+## Contributing
+
+1. Fork it (<https://github.com/your-github-user/serf-handler/fork>)
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
+## Contributors
+
+- [Kirk Haines](https://github.com/your-github-user) - creator and maintainer
