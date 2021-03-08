@@ -12,14 +12,14 @@ on :query, "monit-status" do |event|
     chunk.each do |lines|
       lines.to_s.split("\n").each do |line|
         next if line.empty?
-        fields << line.to_s.strip.split(/\s+/,2)
+        fields << line.to_s.strip.split(/\s+/, 2)
       end
     end
   end
 
   String.build do |str|
     fields.each do |line|
-      str << line.map {|field| "\"#{field}\""}.join(",")
+      str << line.map { |field| "\"#{field}\"" }.join(",")
       str << "\n"
     end
   end

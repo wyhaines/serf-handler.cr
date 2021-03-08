@@ -6,11 +6,11 @@ module SerfHandler
 
     def initialize(
       @type = env_serf_event || :query,
-      name : String = nil?,
-      @payload = STDIN.read.strip
+      name : String? = nil,
+      @payload = STDIN.gets_to_end.strip
     )
       @name = name || (
-        @type == :query ? ENV["SERF_QUERY_NAME"] : ENV["SERF_USER_EVENT"]
+        @type == :query ? ENV["SERF_QUERY_NAME"]?.to_s : ENV["SERF_USER_EVENT"]?.to_s
       )
 
       @type = :event if @type == :user

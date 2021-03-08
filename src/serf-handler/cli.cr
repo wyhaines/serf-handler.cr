@@ -15,7 +15,7 @@ module SerfHandler
         opts.on("-t", "--type [TYPE]", "The type of request to trigger -- a query or an event. Defaults to an event.") do |type|
           if type == "query"
             self["type"] = :query
-          elsif type == "event"
+          elsif type == "event" || type == "user"
             self["type"] = :event
           else
             raise ArgumentError.new("Unknown type #{type}")
@@ -27,6 +27,10 @@ module SerfHandler
         opts.on("-p", "--payload [PAYLOAD]", "The payload to deliver to the event handler that processes the request.") do |payload|
           self["payload"] = payload.to_s
         end
+        opts.on("-v", "--version", "Output #{self.class.version_string}") do
+          puts self.class.version_string
+          exit
+        end
         opts.on("-h", "--help", "Show this help") do
           puts opts
           exit
@@ -37,6 +41,10 @@ module SerfHandler
           exit(1)
         end
       end.parse
+    end
+
+    def self.version_string
+      "serf-handler v#{SerfHandler::VERSION}-crystal"
     end
   end
 end
