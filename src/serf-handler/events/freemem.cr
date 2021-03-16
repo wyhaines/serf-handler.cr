@@ -2,7 +2,7 @@ include SerfHandler
 
 describe "Return current memory and swap status as a csv"
 
-on :query, "freemem" do |event|
+on :query, "freemem" do |_event|
   begin
     data = `free -ht`.chomp
     lines = data.split("\n").map { |line| line.split(/\s+/) }
@@ -15,7 +15,7 @@ on :query, "freemem" do |event|
         end
       end
     String.build do |str|
-      output = lines.map do |line|
+      lines.map do |line|
         str << Array(String).new(maxlength) { |_| "" }
           .zip(line)
           .map do |pair|

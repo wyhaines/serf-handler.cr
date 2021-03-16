@@ -3,7 +3,7 @@ include SerfHandler
 describe "If monit is running on the system, extract all current",
   "status information and return it as CSV data."
 
-on :query, "monit-status" do |event|
+on :query, "monit-status" do |_event|
   data = `monit status`
   chunks = data.scan(/(?:System|Process|Filesystem).*?\n\n/m).map(&.to_a)
 

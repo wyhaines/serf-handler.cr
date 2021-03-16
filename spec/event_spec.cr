@@ -3,13 +3,13 @@ require "./spec_helper"
 describe SerfHandler::Event do
   it "parses the event type from the environment" do
     SerfHandler::Event.env_serf_event(
-      env = {"SERF_EVENT" => "user"}
+      env: {"SERF_EVENT" => "user"}
     ).should eq :event
     SerfHandler::Event.env_serf_event(
-      env = {"SERF_EVENT" => "event"}
+      env: {"SERF_EVENT" => "event"}
     ).should eq :event
     SerfHandler::Event.env_serf_event(
-      env = {"SERF_EVENT" => "query"}
+      env: {"SERF_EVENT" => "query"}
     ).should eq :query
   end
 

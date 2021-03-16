@@ -2,7 +2,7 @@ require "./spec_helper"
 
 describe SerfHandler::Task do
   it "has reasonable defaults" do
-    task = SerfHandler::Task.new { |x| }
+    task = SerfHandler::Task.new { |_| }
     nt = task.to_named_tuple
 
     nt["order"].should eq 0
@@ -17,7 +17,7 @@ describe SerfHandler::Task do
       type: :event,
       name: "The Siege of Pale",
       description: "..."
-    ) { |x| }
+    ) { |_| }
     nt = task.to_named_tuple
 
     nt["order"].should eq 3
@@ -32,7 +32,7 @@ describe SerfHandler::Task do
       type: :event,
       name: "The Siege of Pale",
       description: "..."
-    ) { |x| }
+    ) { |_| }
 
     task.order.should eq 3
   end
@@ -43,7 +43,7 @@ describe SerfHandler::Task do
       type: :event,
       name: "The Siege of Pale",
       description: "..."
-    ) { |x| }
+    ) { |_| }
 
     task.type.should eq :event
   end
@@ -54,7 +54,7 @@ describe SerfHandler::Task do
       type: :event,
       name: "The Siege of Pale",
       description: "..."
-    ) { |x| }
+    ) { |_| }
 
     task.name.should eq "The Siege of Pale"
   end
@@ -65,7 +65,7 @@ describe SerfHandler::Task do
       type: :event,
       name: "The Siege of Pale",
       description: "..."
-    ) { |x| }
+    ) { |_| }
 
     task.description.should eq "..."
   end
@@ -76,24 +76,24 @@ describe SerfHandler::Task do
       type: :event,
       name: "The Siege of Pale",
       description: "..."
-    ) { |x| }
+    ) { |_| }
 
     task.task.is_a?(Proc).should be_true
   end
 
   it "allows it's task to be executed" do
-    task = SerfHandler::Task.new { |x| "7"}
+    task = SerfHandler::Task.new { |_| "7"}
     event = SerfHandler::Event.new(payload: "")
     task.call(event).should eq "7"
   end
 
   it "allows to tasks to be compared" do
-    a = SerfHandler::Task.new(order: 7) { |x| "7"}
-    b = SerfHandler::Task.new(order: 3) { |x| "3"}
-    c = SerfHandler::Task.new(order: 7) { |x| "1"}
+    a = SerfHandler::Task.new(order: 7) { |_| "7"}
+    b = SerfHandler::Task.new(order: 3) { |_| "3"}
+    c = SerfHandler::Task.new(order: 7) { |_| "1"}
 
     (a <=> b).should eq 1
-    (b <=> a).should eq -1  
+    (b <=> a).should eq -1
     (c <=> c).should eq 0
   end
 end
