@@ -1,5 +1,8 @@
 # serf-handler
 
+![SplayTreeMap CI](https://img.shields.io/github/workflow/status/wyhaines/serf-handler.cr/Serf-Handler.cr%20CI?style=for-the-badge&logo=GitHub)
+[![GitHub release](https://img.shields.io/github/release/wyhaines/serf-handler.cr.svg?style=for-the-badge)](https://github.com/wyhaines/serf-handler.cr/releases)
+![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/wyhaines/serf-handler.cr/latest?style=for-the-badge)
 TODO: Write a description here
 
 ## Installation
@@ -37,3 +40,6 @@ TODO: Write development instructions here
 ## Contributors
 
 - [Kirk Haines](https://github.com/your-github-user) - creator and maintainer
+
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/wyhaines/serf-handler.cr?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/wyhaines/serf-handler.cr?style=for-the-badge)
